@@ -36,6 +36,13 @@ class OfferDiscount extends Offer
 {
 	protected $discount;
 
+	public function __construct($title, $price, $discount)
+	{
+		parent::__construct($title, $price);
+
+		$this->discount = $discount;
+	}
+
 	public function getDiscount()
 	{
 		return $this->discount;
