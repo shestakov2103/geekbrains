@@ -7,8 +7,8 @@ class Offer
 
 	public function __construct($title, $price)
 	{
-		$this->title = $title;
-		$this->price = $price;
+		$this->setTitle($title);
+		$this->setPrice($price);
 	}
 
 	public function getTitle()
