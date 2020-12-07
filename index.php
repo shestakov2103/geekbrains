@@ -1,55 +1,19 @@
 <?php
 
-class Offer
+trait Singleton
 {
-	private $title;
-	private $price;
+	protected static $_instance;
 
-	public function __construct($title, $price)
+	public static function getInstance(): self
 	{
-		$this->setTitle($title);
-		$this->setPrice($price);
+		if (self::$_instance === null) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
 	}
 
-	public function getTitle()
-	{
-		return $this->title;
-	}
-
-	public function setTitle($title)
-	{
-		$this->title = $title;
-	}
-
-	public function getPrice()
-	{
-		return $this->price;
-	}
-
-	public function setPrice($price)
-	{
-		$this->price = $price;
-	}
-}
-
-class OfferDiscount extends Offer
-{
-	protected $discount;
-
-	public function __construct($title, $price, $discount)
-	{
-		parent::__construct($title, $price);
-
-		$this->discount = $discount;
-	}
-
-	public function getDiscount()
-	{
-		return $this->discount;
-	}
-
-	public function setDiscount($discount)
-	{
-		$this->discount = $discount;
-	}
+	private function __construct(){}
+	private function __wakeup() {}
+	private function __clone() {}
 }
