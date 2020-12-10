@@ -2,15 +2,15 @@
 
 trait Singleton
 {
-	protected static $_instance;
+	protected static $instance;
 
 	public static function getInstance(): self
 	{
-		if (self::$_instance === null) {
-			self::$_instance = new self();
+		if (self::$instance === null) {
+			self::$instance = new self();
 		}
 
-		return self::$_instance;
+		return self::$instance;
 	}
 
 	private function __construct(){}
